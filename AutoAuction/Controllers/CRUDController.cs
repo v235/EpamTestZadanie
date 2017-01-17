@@ -92,7 +92,7 @@ namespace AutoAuction.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Данные введены некоректно. Пожалуйства исправте ошибки!");
+                ModelState.AddModelError("", "Данные введены некоректно. Пожалуйста исправте ошибки!");
             }
             return View("AddNewLot", createLot);
         }
