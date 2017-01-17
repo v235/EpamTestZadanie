@@ -1,0 +1,41 @@
+﻿@model AutoAuction.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Регистрация";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Регистрация</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(registerView => registerView.Email)
+            @Html.TextBoxFor(registerView => registerView.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(registerView => registerView.Email)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(registerView => registerView.Password)
+            @Html.PasswordFor(registerView => registerView.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(registerView => registerView.Password)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(registerView => registerView.ConfirmPassword)
+            @Html.PasswordFor(registerView => registerView.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(registerView => registerView.ConfirmPassword)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Зарегистрироваться" class="btn btn-success"/>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

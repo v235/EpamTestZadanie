@@ -1,0 +1,54 @@
+﻿@model AutoAuction.Models.CustomerLotViewModel
+
+@{
+    @Styles.Render("~/Content/fancybox/jquery.fancybox.css")
+    @Styles.Render("~/Content/datatables/css/datatables.bootstrap.css")
+    ViewBag.Title = "AddCustomerToLot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Форма для участия в аукционе</h2>
+<div class="row">
+    <div class="col-md-12">
+        <table id="singlelot" class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Имя лота</th>
+                <th>Изображение лота</th>
+                <th>Дата начала аукциона</th>
+                <th>Дата окончания аукциона</th>
+                <th>Стартовая цена </th>
+                <th>Текущая цена </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.LotName)</td>
+                <td>
+                    <a class="fancybox" rel="group" href=''>
+                        <img id="LotImageUrl" src=@Model.LotImageUrl style="height: auto; width: 120px; cursor: pointer;"/>
+                    </a>
+                </td>
+                <td>@Html.DisplayFor(model => model.StarLotSaleDate)</td>
+                <td>@Html.DisplayFor(model => model.EndLotSaleDate)</td>
+                <td>@Html.DisplayFor(model => model.StartLotPrice)</td>
+                <td id="LotCurrentPrice">@Html.DisplayFor(model => model.CurrentPrice)</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            @Html.HiddenFor(m => m.LotId, new {@id = "LotId"})
+            @Html.LabelFor(m => m.CustomerBet)
+            @Html.TextBoxFor(m => m.CustomerBet, new {@class = "form-control", @id = "addPrice"})
+        </div>
+        <div>
+            <input type="submit" style="width: 100%" class="btn btn-success" value="Участвовать в аукционе" id="AddNewCustomer"/>
+        </div>
+        <div id="errors" style="color: red;"></div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/bundles/fancybox")
+    @Scripts.Render("~/Scripts/ViewScripts/APICRUDController/AddCustomerToLot.js")
+}

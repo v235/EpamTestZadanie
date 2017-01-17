@@ -1,0 +1,52 @@
+﻿@model AutoAuction.Models.CustomerLotViewModel
+
+@{
+    @Styles.Render("~/Content/fancybox/jquery.fancybox.css")
+    @Styles.Render("~/Content/datatables/css/datatables.bootstrap.css")
+    ViewBag.Title = "AddCustomerToLot";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Информация о лоте</h2>
+@using (@Html.BeginForm("AddCustomerToLot", "CRUD", new { @id = Model.LotId }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <table id="singlelot" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Имя лота</th>
+                    <th>Изображение лота</th>
+                    <th>Дата начала аукциона</th>
+                    <th>Дата окончания аукциона</th>
+                    <th>Стартовая цена </th>
+                    <th>Текущая цена </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.LotName)</td>
+                    <td>
+                        <a class="fancybox" rel="group" href=''>
+                            <img id="LotImageUrl" src=@Model.LotImageUrl style="height: auto; width: 120px; cursor: pointer;"/>
+                        </a>
+                    </td>
+                    <td>@Html.DisplayFor(model => model.StarLotSaleDate)</td>
+                    <td>@Html.DisplayFor(model => model.EndLotSaleDate)</td>
+                    <td>@Html.DisplayFor(model => model.StartLotPrice)</td>
+                    <td id="LotCurrentPrice">@Html.DisplayFor(model => model.CurrentPrice)</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <input type="submit" style="width: 100%" class="btn btn-success" value="Участвовать в аукционе" id="AddNewCustomer"/>
+            </div>          
+        </div>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/fancybox")
+    @Scripts.Render("~/Scripts/ViewScripts/CRUDController/CustomerSeeLot.js")
+}
+

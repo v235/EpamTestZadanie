@@ -1,0 +1,43 @@
+﻿@model AutoAuction.Models.CreateLotViewModel
+
+@{
+    @Styles.Render("~/Content/datetime/css")
+    ViewBag.Title = "AddNewLot";
+}
+
+<h2>Создать свой аукционный лот</h2>
+@using (@Html.BeginForm("Create", "CRUD", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LotName)
+                @Html.TextBoxFor(m => m.LotName, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.LotName)
+            </div>
+            <div class="form-group">
+                <div class="editor-label">Загрузить фото лота</div>
+                <div class="editor-field">
+                    <input type="file" name="uploadImage" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EndLotSaleDate)
+
+                @Html.TextBoxFor(m => m.EndLotSaleDate, new { @class = "form-control datepicker" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.StartLotPrice)
+                @Html.TextBoxFor(m => m.StartLotPrice, new {@class = "form-control"})
+                @Html.ValidationMessageFor(m => m.StartLotPrice)
+            </div>   
+            <button type="submit" class="btn btn-success">Создать лот</button>          
+        </div>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ViewScripts/CRUDController/AddNewLot.js")
+}

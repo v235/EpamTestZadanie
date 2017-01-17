@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AutoAuction.Models.LotViewModel>
+
+@{
+    @Styles.Render("~/Content/datatables/css/datatables.bootstrap.css")
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Аукционные Лоты</h1>
+<div class="row">
+    <div class="col-md-12">
+        <table id="table" class="table table-bordered table-hover" style="cursor: pointer">
+            <thead>
+            <tr>
+                <th>Лот id</th>
+                <th>Имя лота</th>
+                <th>Изображение лота</th>
+                <th>Дата начала аукциона</th>
+                <th>Дата окончания аукциона</th>
+                <th>Стартовая цена </th>
+                <th>Текущая цена </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var lot in @Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => lot.LotId)</td>
+                    <td>@Html.DisplayFor(model => lot.LotName)</td>
+                    <td><img src=@lot.LotImageUrl style="height: auto; width: 120px;"/></td>
+                    <td>@Html.DisplayFor(model => lot.StarLotSaleDate)</td>
+                    <td>@Html.DisplayFor(model => lot.EndLotSaleDate)</td>
+                    <td>@Html.DisplayFor(model => lot.StartLotPrice)</td>
+                    <td>@Html.DisplayFor(model => lot.CurrentPrice)</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <input type="submit" style="width: 100%" class="btn btn-success" value="Показать лоты где я участвую" id="CustomerLots"/>
+        <input type="submit" style="width: 100%" class="btn btn-success" value="Обновить список лотов" id="UpdateLots"/>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ViewScripts/CRUDController/Index.js")
+}

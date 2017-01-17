@@ -1,0 +1,20 @@
+﻿@import "compass"
+
+.bxslider li
+	min-height: 100vh
+	&.one
+		background: url(https://images.unsplash.com/photo-1465205568425-23fdd3805e49?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=7e476dbc9096ec1c869bd2cb97d82c70) center center
+		+background-size(cover)
+	&.two
+		background: url(https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=61282cfeed75871385c84c2a44a8e594) center center
+		+background-size(cover)
+	&.three
+		background: url(https://images.unsplash.com/photo-1463392898715-3939d4ab1019?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=da848bfb85b0ee6989e1c4bec6388ce4) center center
+		+background-size(cover)
+.bx-wrapper .bx-viewport
+	left: 0
+	border: none
+	box-shadow: none
+ul, ul li
+	margin: 0
+	padding: 0

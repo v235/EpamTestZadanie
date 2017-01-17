@@ -1,0 +1,37 @@
+﻿
+@{
+    @Styles.Render("~/Content/datatables/css/datatables.bootstrap.css")
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Лоты @User.Identity.Name</h2>
+<div class="row">
+    <div class="col-md-12">
+        <table id="customerLots" class="table table-bordered table-hover" style="cursor: pointer">
+            <thead>
+            <tr>
+                <th>Имя лота</th>
+                <th>Изображение лота</th>
+                <th>Дата начала аукциона</th>
+                <th>Дата окончания аукциона</th>
+                <th>Текущая цена $</th>
+                <th>Ваша ставка $</th>
+                <th>Удалить свою ставку</th>
+                <th>Статус лота</th>
+                <th>Владелец лота</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div>
+            <input type="submit" style="width: 100%" class="btn btn-success" value="Перейти к списку аукционных лотов" id="CustomerLots"/>
+            <input type="submit" style="width: 100%" class="btn btn-success" value="Создать свой аукционный лот" id="AddNewLot"/>
+        </div>
+        <div id="errors" style="color: red;"></div>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/ViewScripts/APICRUDController/Index.js")
+}

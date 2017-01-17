@@ -1,0 +1,48 @@
+﻿@model AutoAuction.Models.UpdateLotViewModel
+
+@{
+    @Styles.Render("~/Content/datetime/css")
+    ViewBag.Title = "UpdateLot";
+}
+
+<h2>UpdateLot</h2>
+@using (@Html.BeginForm("Edit", "CRUD", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LotName)
+                @Html.TextBoxFor(m => m.LotName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LotName)
+            </div>
+            <div class="form-group">
+                <div class="editor-label">Загрузить фото лота</div>
+                <div class="editor-field">
+                    <input type="file" name="uploadImage" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EndLotSaleDate)
+
+                @Html.TextBoxFor(m => m.EndLotSaleDate, "{0:dd'/'MM'/'yyyy}", new { @class = "form-control datepicker" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.StartLotPrice)
+                @Html.TextBoxFor(m => m.StartLotPrice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StartLotPrice)
+            </div>
+            @Html.HiddenFor(m => m.LotId)
+            @Html.HiddenFor(m => m.LotImageUrl)           
+            <button name="action" value="delete" type="submit" class="btn btn-success">Удалить лот</button>
+            <button name="action" value="update" type="submit" class="btn btn-success">Сохранить изменения</button>           
+        </div>
+    </div>
+}
+@section scripts
+{  
+    @Scripts.Render("~/Scripts/ViewScripts/CRUDController/UpdateLot.js")
+}
+
+

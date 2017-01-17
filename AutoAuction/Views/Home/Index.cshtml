@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AutoAuction.Models.LotViewModel>
+@{  
+    ViewBag.Title = "Home Page";
+
+}
+<h1 style="text-align: center;">Привет! Это сайт автомобильный аукцион.</h1>
+<div class="row">
+    <div class="col-md-12">
+        <ul id="slider">
+            @foreach (var lot in @Model)
+            {
+                <li>
+                    <a href="CRUD/CustomerSeeLot/@lot.LotId">
+                        <img src=@lot.LotImageUrl style="cursor: pointer;height:auto;width:auto;"/>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jquery.bxslider.js")
+    @Scripts.Render("~/Scripts/ViewScripts/HomeController/Index.js")_
+}
+    

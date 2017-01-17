@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAuction", "AutoAuction\AutoAuction.csproj", "{DF348923-C255-4191-81F2-5389D5F477DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAuction.Tests", "AutoAuction.Tests\AutoAuction.Tests.csproj", "{9AC669BC-9E44-4E4A-9460-5AD6AD3821FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF348923-C255-4191-81F2-5389D5F477DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF348923-C255-4191-81F2-5389D5F477DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF348923-C255-4191-81F2-5389D5F477DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF348923-C255-4191-81F2-5389D5F477DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AC669BC-9E44-4E4A-9460-5AD6AD3821FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AC669BC-9E44-4E4A-9460-5AD6AD3821FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AC669BC-9E44-4E4A-9460-5AD6AD3821FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AC669BC-9E44-4E4A-9460-5AD6AD3821FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

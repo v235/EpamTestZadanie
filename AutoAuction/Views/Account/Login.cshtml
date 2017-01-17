@@ -1,0 +1,34 @@
+﻿@model AutoAuction.Models.LoginViewModel
+@{
+    ViewBag.Title = "Авторизация";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Авторизация</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(loginView => loginView.Email)
+            @Html.TextBoxFor(loginView => loginView.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(loginView => loginView.Email)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(loginView => loginView.Password)
+            @Html.PasswordFor(loginView => loginView.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(loginView => loginView.Password)
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Авторизоваться" class="btn btn-success"/>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
